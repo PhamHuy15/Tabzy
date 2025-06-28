@@ -55,7 +55,7 @@ Tabzy.prototype._init = function () {
 
     this.currentTab = tab;
 
-    this._activateTab(tab, false);
+    this._activateTab(tab, false, false);
 
     this.tabs.forEach((tab) => {
         tab.onclick = (event) => {
@@ -66,7 +66,7 @@ Tabzy.prototype._init = function () {
     });
 };
 
-Tabzy.prototype._activateTab = function (tab, triggerOnChange = true) {
+Tabzy.prototype._activateTab = function (tab, triggerOnChange = true, updateURL = this.opt.remember) {
     this.tabs.forEach((tab) => {
         tab.closest('li').classList.remove(this.opt.activeClassName);
     });
@@ -83,7 +83,7 @@ Tabzy.prototype._activateTab = function (tab, triggerOnChange = true) {
 
     searchPrams.set(this.paramKey, paramValue);
 
-    if (this.opt.remember) {
+    if (updateURL) {
         history.replaceState(null, null, `?${searchPrams}`);
     }
 
