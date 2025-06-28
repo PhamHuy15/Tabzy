@@ -12,7 +12,7 @@
         </style>
     </head>
     <body>
-        <ul id="tabs">
+        <ul id="tabs1">
             <li><a href="#tab1">Tab 1</a></li>
             <li><a href="#tab2">Tab 2</a></li>
             <li><a href="#tab3">Tab 3</a></li>
@@ -22,9 +22,27 @@
         <div id="tab2">Tab 2 Content</div>
         <div id="tab3">Tab 3 Content</div>
 
+        <ul id="tabs2">
+            <li><a href="#tabA">Tab A</a></li>
+            <li><a href="#tabB">Tab B</a></li>
+            <li><a href="#tabC">Tab C</a></li>
+        </ul>
+
+        <div id="tabA">Tab A Content</div>
+        <div id="tabB">Tab B Content</div>
+        <div id="tabC">Tab C Content</div>
         <script src="./src/tabzy.js"></script>
         <script>
-            const tab1 = new Tabzy('#tabs');
+            const tab1 = new Tabzy('#tabs1', {
+                remember: true,
+                onchange: (data) => {
+                    console.log(data);
+                },
+            });
+
+            const tab2 = new Tabzy('#tabs2', {
+                remember: true,
+            });
         </script>
     </body>
 </html>
