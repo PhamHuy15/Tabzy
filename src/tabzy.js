@@ -97,8 +97,8 @@ Tabzy.prototype._activateTab = function (tab, triggerOnChange = true, updateURL 
 
 Tabzy.prototype._tryActiveTab = function (tab) {
     if (this.currentTab !== tab) {
-        this._activateTab(tab);
         this.currentTab = tab;
+        this._activateTab(tab);
     }
 };
 
